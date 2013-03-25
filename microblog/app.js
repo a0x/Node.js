@@ -10,6 +10,8 @@ var express = require('express')
   , path = require('path');
 
 var app = express();
+var MongoStore = require('connect-mongo')(express);
+var settings = require('./settings');
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -19,6 +21,13 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(express.cookieParser());
+  app.use(express.session({
+    secret: settings.cookieSecret,
+    store: new MongoStore({
+      db: settings.db
+    })
+  }));
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -26,7 +35,7 @@ app.configure(function(){
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
-//routes(app);  //Fix bugs
+
 
 app.get('/', routes.index);
 app.get('/u:user', routes.user);
@@ -40,3 +49,5 @@ app.get('/logout', routes.logout);
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+//routes(app);  //Fix bugs

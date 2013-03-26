@@ -33,28 +33,33 @@
 			</div>
 		</div>
 		<div id="container" class="container">
-		<div class="hero-unit">
-			<h1>Welcome to Mircoblog</h1>
-			<p>Microblog is a microblog system based on Node.js.</p>
-			<p>
-				<a class="btn btn-primary btn-large" href="/login">Login</a>
-				<a class="btn btn-large" href="/reg">Register Right Now</a>
-			</p>
-			<div class="row">
-				<div class="span4">
-					<h2>Title 1</h2>
-					<p>paragraph</p>
+		<form class="form-horizontal" method="post">
+			<fieldset>
+				<legend>用户注册</legend>
+				<div class="control-group">
+					<label class="control-label" for="username">用户名</label>
+					<div class="controls">
+						<input type="text" class="input-xlarge" id="username" name="username">
+						<p class="help-block">你的账户名称，用于登录和显示。</p>
+					</div>
 				</div>
-				<div class="span4">
-					<h2>Title 2</h2>
-					<p>paragraph</p>
+				<div class="control-group">
+					<label class="control-label" for="password">口令</label>
+					<div class="controls">
+						<input type="password" class="input-xlarge" id="password" name="password">
+					</div>
 				</div>
-				<div class="span4">
-					<h2>Title 3</h2>
-					<p>paragraph</p>
+				<div class="control-group">
+					<label class="control-label" for="password-repeat">重复输入口令</label>
+					<div class="controls">
+						<input type="password" class="input-xlarge" id="password-repeat" name="password-repeat">
+					</div>
 				</div>
-			</div>
-		</div>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">注册</button>
+				</div>
+			</fieldset>
+		</form>
 			<hr/>
 			<footer>
 				<p><a href="#" target="_blank">IT Studio</a></p>
@@ -64,5 +69,3 @@
 	<script type="text/javascript" src="javascripts/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="javascripts/bootstrap.js"></script>
 </html>
-
-

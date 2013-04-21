@@ -1,5 +1,6 @@
 module.exports = {
-	cookieSecret: 'microblog_itstudio',
-	db: 'microblog',
-	host: 'localhost',
+	cookie_secret : 'secret_meteoric',
+	db : 'microblog',
+	host : 'localhost',
+	port : 27017
 }
